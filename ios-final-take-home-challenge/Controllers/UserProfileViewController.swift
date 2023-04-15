@@ -7,7 +7,10 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, MainStoryboarded {
+    
+    weak var coordinator: MainCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

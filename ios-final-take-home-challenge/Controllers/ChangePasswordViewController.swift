@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ChangePasswordViewController: UIViewController {
+class ChangePasswordViewController: UIViewController, MainStoryboarded {
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

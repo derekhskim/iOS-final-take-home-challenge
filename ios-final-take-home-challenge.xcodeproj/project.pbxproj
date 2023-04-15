@@ -23,6 +23,9 @@
 		650E111929EA3DFC00B6203A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E111829EA3DFC00B6203A /* Model.swift */; };
 		650E111B29EA3FD500B6203A /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E111A29EA3FD500B6203A /* UserProfileViewController.swift */; };
 		650E111E29EA403F00B6203A /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E111D29EA403F00B6203A /* ChangePasswordViewController.swift */; };
+		650E112229EA43D100B6203A /* MainStoryboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112129EA43D100B6203A /* MainStoryboarded.swift */; };
+		650E112429EA43EB00B6203A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112329EA43EB00B6203A /* Coordinator.swift */; };
+		650E112629EA43F500B6203A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112529EA43F500B6203A /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		650E111829EA3DFC00B6203A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		650E111A29EA3FD500B6203A /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		650E111D29EA403F00B6203A /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		650E112129EA43D100B6203A /* MainStoryboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboarded.swift; sourceTree = "<group>"; };
+		650E112329EA43EB00B6203A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		650E112529EA43F500B6203A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +82,12 @@
 		650E10F229EA37AF00B6203A /* ios-final-take-home-challenge */ = {
 			isa = PBXGroup;
 			children = (
+				650E111F29EA43B600B6203A /* Coordinator */,
 				650E110729EA383600B6203A /* Models */,
-				650E111C29EA3FD900B6203A /* ViewControllers */,
+				650E112729EA451200B6203A /* Views */,
+				650E111C29EA3FD900B6203A /* Controllers */,
 				650E10F329EA37AF00B6203A /* AppDelegate.swift */,
 				650E10F529EA37AF00B6203A /* SceneDelegate.swift */,
-				650E10F729EA37AF00B6203A /* ViewController.swift */,
 				650E10F929EA37AF00B6203A /* Main.storyboard */,
 				650E10FC29EA37B100B6203A /* Assets.xcassets */,
 				650E10FE29EA37B100B6203A /* LaunchScreen.storyboard */,
@@ -112,13 +119,39 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
-		650E111C29EA3FD900B6203A /* ViewControllers */ = {
+		650E111C29EA3FD900B6203A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				650E10F729EA37AF00B6203A /* ViewController.swift */,
 				650E111A29EA3FD500B6203A /* UserProfileViewController.swift */,
 				650E111D29EA403F00B6203A /* ChangePasswordViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		650E111F29EA43B600B6203A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				650E112029EA43C200B6203A /* Storyboarded */,
+				650E112329EA43EB00B6203A /* Coordinator.swift */,
+				650E112529EA43F500B6203A /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		650E112029EA43C200B6203A /* Storyboarded */ = {
+			isa = PBXGroup;
+			children = (
+				650E112129EA43D100B6203A /* MainStoryboarded.swift */,
+			);
+			path = Storyboarded;
+			sourceTree = "<group>";
+		};
+		650E112729EA451200B6203A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,11 +227,14 @@
 			files = (
 				650E110929EA3A2000B6203A /* NetworkManager.swift in Sources */,
 				650E111B29EA3FD500B6203A /* UserProfileViewController.swift in Sources */,
+				650E112429EA43EB00B6203A /* Coordinator.swift in Sources */,
+				650E112229EA43D100B6203A /* MainStoryboarded.swift in Sources */,
 				650E10F829EA37AF00B6203A /* ViewController.swift in Sources */,
 				650E10F429EA37AF00B6203A /* AppDelegate.swift in Sources */,
 				650E111229EA3B2800B6203A /* UpdateProfileEndpoint.swift in Sources */,
 				650E10F629EA37AF00B6203A /* SceneDelegate.swift in Sources */,
 				650E111E29EA403F00B6203A /* ChangePasswordViewController.swift in Sources */,
+				650E112629EA43F500B6203A /* MainCoordinator.swift in Sources */,
 				650E111429EA3B3E00B6203A /* ChangePasswordEndpoint.swift in Sources */,
 				650E111029EA3B1800B6203A /* GetProfileEndpoint.swift in Sources */,
 				650E110D29EA3A8C00B6203A /* HttpMethod.swift in Sources */,

@@ -151,8 +151,8 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="reJ-u4-gu0">
-                                <rect key="frame" x="20" y="322" width="353" height="36"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="reJ-u4-gu0">
+                                <rect key="frame" x="20" y="322" width="353" height="30"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7hR-vb-eYw">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="30"/>
@@ -173,11 +173,57 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypv-Zf-rpv" userLabel="DividerView">
-                                        <rect key="frame" x="0.0" y="35" width="353" height="1"/>
-                                        <color key="backgroundColor" name="LightGray"/>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="f2x-lM-pWK">
+                                <rect key="frame" x="0.0" y="362" width="393" height="140"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0J-gL-51p">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLC-Sj-1OB">
+                                                <rect key="frame" x="40" y="8" width="313" height="54"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Save Change">
+                                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="saveChangeButtonTapped:" destination="hb3-J7-vZL" eventType="touchUpInside" id="q8s-BD-HQ6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="DarkGreen"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="4bg-Ni-79V"/>
+                                            <constraint firstItem="QLC-Sj-1OB" firstAttribute="top" secondItem="s0J-gL-51p" secondAttribute="top" constant="8" id="MEm-ab-UcQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="QLC-Sj-1OB" secondAttribute="bottom" constant="8" id="OYQ-mH-UtR"/>
+                                            <constraint firstAttribute="height" constant="70" id="Zwc-Ew-lV6"/>
+                                            <constraint firstAttribute="trailing" secondItem="QLC-Sj-1OB" secondAttribute="trailing" constant="40" id="fgs-8e-zQd"/>
+                                            <constraint firstItem="QLC-Sj-1OB" firstAttribute="leading" secondItem="s0J-gL-51p" secondAttribute="leading" constant="40" id="kcj-GG-Jph"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvv-CY-Nbj">
+                                        <rect key="frame" x="0.0" y="70" width="393" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-2u-5Oh">
+                                                <rect key="frame" x="40" y="8" width="313" height="54"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Change Password">
+                                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="changePasswordButtonTapped:" destination="hb3-J7-vZL" eventType="touchUpInside" id="0ff-tk-HTO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="DarkGreen"/>
+                                        <constraints>
+                                            <constraint firstItem="RdD-2u-5Oh" firstAttribute="top" secondItem="zvv-CY-Nbj" secondAttribute="top" constant="8" id="6Qs-3m-bjk"/>
+                                            <constraint firstAttribute="trailing" secondItem="RdD-2u-5Oh" secondAttribute="trailing" constant="40" id="Dc5-i0-wQL"/>
+                                            <constraint firstAttribute="bottom" secondItem="RdD-2u-5Oh" secondAttribute="bottom" constant="8" id="P4X-zD-dFc"/>
+                                            <constraint firstItem="RdD-2u-5Oh" firstAttribute="leading" secondItem="zvv-CY-Nbj" secondAttribute="leading" constant="40" id="rO2-lK-yJo"/>
+                                            <constraint firstAttribute="height" constant="70" id="siB-vz-AcP"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -191,6 +237,7 @@
                             <constraint firstItem="8HV-bd-1rI" firstAttribute="top" secondItem="YId-W0-A3c" secondAttribute="bottom" constant="10" id="6Fv-LU-Ssm"/>
                             <constraint firstItem="jSU-OB-YIX" firstAttribute="trailing" secondItem="uKE-de-5ah" secondAttribute="trailing" constant="20" id="B5B-Oh-2sD"/>
                             <constraint firstItem="jSU-OB-YIX" firstAttribute="trailing" secondItem="YId-W0-A3c" secondAttribute="trailing" id="Ecp-dy-nDI"/>
+                            <constraint firstAttribute="trailing" secondItem="f2x-lM-pWK" secondAttribute="trailing" id="Ig1-wv-hLi"/>
                             <constraint firstItem="266-yn-bbc" firstAttribute="top" secondItem="CNe-Cj-9ic" secondAttribute="top" id="N6o-z2-7ki"/>
                             <constraint firstItem="jSU-OB-YIX" firstAttribute="trailing" secondItem="reJ-u4-gu0" secondAttribute="trailing" constant="20" id="P0H-gf-hSW"/>
                             <constraint firstItem="P4w-yZ-vJr" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" id="PPS-LF-JVr"/>
@@ -201,14 +248,18 @@
                             <constraint firstItem="uKE-de-5ah" firstAttribute="top" secondItem="8HV-bd-1rI" secondAttribute="bottom" constant="10" id="ZCv-NC-nPT"/>
                             <constraint firstItem="jSU-OB-YIX" firstAttribute="trailing" secondItem="266-yn-bbc" secondAttribute="trailing" id="nZ6-Nk-5dd"/>
                             <constraint firstItem="266-yn-bbc" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" id="pka-Up-7Ga"/>
+                            <constraint firstItem="f2x-lM-pWK" firstAttribute="top" secondItem="reJ-u4-gu0" secondAttribute="bottom" constant="10" id="sf4-Wk-YVl"/>
                             <constraint firstItem="reJ-u4-gu0" firstAttribute="top" secondItem="uKE-de-5ah" secondAttribute="bottom" constant="10" id="t3b-Zd-LAi"/>
                             <constraint firstItem="YId-W0-A3c" firstAttribute="top" secondItem="P4w-yZ-vJr" secondAttribute="bottom" id="tEb-o1-55L"/>
+                            <constraint firstItem="f2x-lM-pWK" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" id="uMC-xT-pkw"/>
                             <constraint firstItem="reJ-u4-gu0" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" constant="20" id="ubX-YX-pJD"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changePasswordButton" destination="RdD-2u-5Oh" id="bLL-Ih-4Ow"/>
                         <outlet property="firstNameTextField" destination="kR1-Xd-lBK" id="yvj-aq-Pac"/>
                         <outlet property="lastNameTextField" destination="OoC-Dt-6hc" id="gFc-Ob-FHT"/>
+                        <outlet property="saveChangeButton" destination="QLC-Sj-1OB" id="VJJ-Oj-abV"/>
                         <outlet property="userNameTextField" destination="mcy-q4-6u3" id="jz4-bM-cLl"/>
                     </connections>
                 </viewController>

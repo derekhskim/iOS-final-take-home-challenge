@@ -13,7 +13,7 @@ class ChangePasswordViewController: MainViewController, MainStoryboarded {
         super.viewDidLoad()
         
         changePassword()
-        setupNavigationBar()
+        setupNavigationBar(backButtonTitle: "")
         
     }
     

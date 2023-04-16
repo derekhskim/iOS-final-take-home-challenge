@@ -14,9 +14,9 @@ class MainViewController: UIViewController {
         
     }
     
-    func setupNavigationBar() {
+    func setupNavigationBar(backButtonTitle titleText: String) {
         let backButton = UIBarButtonItem()
-        backButton.title = "Dashboard"
+        backButton.title = titleText
         backButton.tintColor = UIColor.appColor(DKColor.DarkGray)
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }

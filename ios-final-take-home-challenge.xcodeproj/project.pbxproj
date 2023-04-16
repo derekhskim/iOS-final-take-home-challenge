@@ -26,6 +26,8 @@
 		650E112229EA43D100B6203A /* MainStoryboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112129EA43D100B6203A /* MainStoryboarded.swift */; };
 		650E112429EA43EB00B6203A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112329EA43EB00B6203A /* Coordinator.swift */; };
 		650E112629EA43F500B6203A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112529EA43F500B6203A /* MainCoordinator.swift */; };
+		650E112A29EB99CC00B6203A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112929EB99CC00B6203A /* UIColor+.swift */; };
+		650E112C29EB9C9E00B6203A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112B29EB9C9E00B6203A /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		650E112129EA43D100B6203A /* MainStoryboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboarded.swift; sourceTree = "<group>"; };
 		650E112329EA43EB00B6203A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		650E112529EA43F500B6203A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		650E112929EB99CC00B6203A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		650E112B29EB9C9E00B6203A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 		650E10F229EA37AF00B6203A /* ios-final-take-home-challenge */ = {
 			isa = PBXGroup;
 			children = (
+				650E112829EB99C600B6203A /* Helper */,
 				650E111F29EA43B600B6203A /* Coordinator */,
 				650E110729EA383600B6203A /* Models */,
 				650E112729EA451200B6203A /* Views */,
@@ -125,6 +130,7 @@
 				650E10F729EA37AF00B6203A /* ViewController.swift */,
 				650E111A29EA3FD500B6203A /* UserProfileViewController.swift */,
 				650E111D29EA403F00B6203A /* ChangePasswordViewController.swift */,
+				650E112B29EB9C9E00B6203A /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -152,6 +158,14 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		650E112829EB99C600B6203A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				650E112929EB99CC00B6203A /* UIColor+.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,12 +247,14 @@
 				650E10F429EA37AF00B6203A /* AppDelegate.swift in Sources */,
 				650E111229EA3B2800B6203A /* UpdateProfileEndpoint.swift in Sources */,
 				650E10F629EA37AF00B6203A /* SceneDelegate.swift in Sources */,
+				650E112A29EB99CC00B6203A /* UIColor+.swift in Sources */,
 				650E111E29EA403F00B6203A /* ChangePasswordViewController.swift in Sources */,
 				650E112629EA43F500B6203A /* MainCoordinator.swift in Sources */,
 				650E111429EA3B3E00B6203A /* ChangePasswordEndpoint.swift in Sources */,
 				650E111029EA3B1800B6203A /* GetProfileEndpoint.swift in Sources */,
 				650E110D29EA3A8C00B6203A /* HttpMethod.swift in Sources */,
 				650E111929EA3DFC00B6203A /* Model.swift in Sources */,
+				650E112C29EB9C9E00B6203A /* MainViewController.swift in Sources */,
 				650E110B29EA3A6700B6203A /* Endpoint.swift in Sources */,
 				650E111729EA3C5200B6203A /* NetworkError.swift in Sources */,
 			);

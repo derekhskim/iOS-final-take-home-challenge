@@ -17,15 +17,15 @@ class NetworkManager {
     
     func request<T: Codable>(endpoint: Endpoint, completion: @escaping (Result<T, NetworkError>) -> Void, userDefaultsSaving: ((T) -> Void)? = nil) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            switch endpoint.identifier {
-            case "getProfile":
+            switch endpoint.path {
+            case "/profiles/me":
                 let response: [String: Any] = [
                     "msg": "Profile fetched successfully",
                     "msg_code": 200,
                     "data": [
-                        "firstName": "John",
-                        "userName": "john.doe",
-                        "lastName": "Doe"
+                        "firstName": "Johnny B.",
+                        "userName": "iOS User",
+                        "lastName": "Goode"
                     ]
                 ]
                 if let data = try? JSONSerialization.data(withJSONObject: response, options: []) {
@@ -36,14 +36,14 @@ class NetworkManager {
                         completion(.failure(.invalidResponse))
                     }
                 }
-            case "updateProfile":
+            case "/profiles/update":
                 let response: [String: Any] = [
                     "msg": "Profile updated successfully",
                     "msg_code": 200,
                     "data": [
-                        "firstName": "John",
-                        "userName": "john.doe",
-                        "lastName": "Doe"
+                        "firstName": "Derek",
+                        "userName": "Derek.Kim",
+                        "lastName": "Kim"
                     ]
                 ]
                 if let data = try? JSONSerialization.data(withJSONObject: response, options: []) {
@@ -54,7 +54,7 @@ class NetworkManager {
                         completion(.failure(.invalidResponse))
                     }
                 }
-            case "changePassword":
+            case "/profiles/password/change":
                 let response: [String: Any] = [
                     "msg": "Password changed successfully",
                     "msg_code": 200
@@ -68,7 +68,7 @@ class NetworkManager {
                     }
                 }
             default:
-                print("Unknown endpoint identifier")
+                print("Unknown endpoint path")
             }
         }
     }

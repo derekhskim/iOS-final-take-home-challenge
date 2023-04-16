@@ -7,9 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, MainStoryboarded {
+class ViewController: MainViewController, MainStoryboarded {
 
     weak var coordinator: MainCoordinator?
+    
+    // MARK: - @IBAction
+    @IBAction func goToUserProfileButtonTapped(_ sender: Any) {
+        coordinator?.goToUserProfileVC()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

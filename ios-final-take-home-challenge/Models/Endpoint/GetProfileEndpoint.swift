@@ -8,7 +8,7 @@
 import Foundation
 
 struct GetProfileEndpoint: Endpoint {
-    var identifier: String { return "getProfile" }
+    var path: String { return "/profiles/me" }
     var httpMethod: HttpMethod { return .get }
     var headers: [String : String] { return defaultHeaders }
     var body: Data? { return nil }

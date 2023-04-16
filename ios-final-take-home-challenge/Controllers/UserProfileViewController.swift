@@ -7,15 +7,25 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController, MainStoryboarded {
+class UserProfileViewController: MainViewController, MainStoryboarded {
     
     weak var coordinator: MainCoordinator?
+    
+    // MARK: - @IBOutlet
+    
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    
+    // MARK: - @IBAction
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getUserProfile()
         updateUserProfile()
+        setupNavigationBar()
+        
     }
 
     func getUserProfile() {
@@ -23,7 +33,11 @@ class UserProfileViewController: UIViewController, MainStoryboarded {
         NetworkManager.shared.request(endpoint: getProfileEndpoint) { (result: Result<Response, NetworkError>) in
             switch result {
             case .success(let response):
-                print("Successfully retrieved User: \(response)")
+                
+                self.userNameTextField.text = response.data.userName
+                self.lastNameTextField.text = response.data.lastName
+                self.firstNameTextField.text = response.data.firstName
+                
             case .failure(let networkError):
                 print("Error fetching user's information: \(networkError.localizedDescription)")
             }

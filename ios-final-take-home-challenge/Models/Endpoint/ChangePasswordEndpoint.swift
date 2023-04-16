@@ -8,7 +8,7 @@
 import Foundation
 
 struct ChangePasswordEndpoint: Endpoint {
-    var identifier: String { return "changePassword" }
+    var path: String { return "/profiles/password/change" }
     var httpMethod: HttpMethod { return .post }
     var headers: [String : String] { return defaultHeaders }
     var body: Data? { return nil }

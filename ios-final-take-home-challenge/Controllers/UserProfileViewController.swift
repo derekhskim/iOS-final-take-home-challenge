@@ -22,21 +22,16 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
     // MARK: - @IBAction
     @IBAction func saveChangeButtonTapped(_ sender: Any) {
         
-        saveChangeButton.isUserInteractionEnabled = false
-        saveChangeButton.setAttributedTitle(NSAttributedString(string: "", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
-        let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        indicator.color = UIColor.white
-        indicator.startAnimating()
-        saveChangeButton.addSubview(indicator)
-        indicator.center = CGPoint(x: saveChangeButton.bounds.midX, y: saveChangeButton.bounds.midY)
+        // Show Indicator when button is tapped - method is within `MainViewController`
+        showLoadingIndicator(on: saveChangeButton)
         
+        // Safely unwrap and check for empty fields - if any field is empty, call showAlert method
         guard let userName = userNameTextField.text, !userName.isEmpty,
               let firstName = firstNameTextField.text, !firstName.isEmpty,
               let lastName = lastNameTextField.text, !lastName.isEmpty else {
             showAlert(title: "Error", message: NetworkError.emptyFields.localizedDescription, buttonTitle: "Try Again") { _ in
-                indicator.removeFromSuperview()
-                self.saveChangeButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
-                self.saveChangeButton.isUserInteractionEnabled = true
+                // Hide Indicator when button is tapped - method is within `MainViewController`
+                self.hideLoadingIndicator(on: self.saveChangeButton, buttonTitle: "Save Change")
             }
             return
         }
@@ -47,16 +42,15 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
             switch result {
             case .success(let response):
                 self.showAlert(title: "Success!", message: "User information has been updated successfully!", buttonTitle: "OK") { _ in
+                    // Pass userData of firstName, userName, and lastName as body and when success, save it in UserDefault.standard
                     UserDefaults.standard.set(try? PropertyListEncoder().encode(response.data), forKey: "userProfile")
-                    indicator.removeFromSuperview()
-                    self.saveChangeButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
-                    self.saveChangeButton.isUserInteractionEnabled = true
+                    // Hide Indicator when button is tapped - method is within `MainViewController`
+                    self.hideLoadingIndicator(on: self.saveChangeButton, buttonTitle: "Save Change")
                 }
             case .failure(let networkError):
                 self.showAlert(title: "Error", message: networkError.localizedDescription, buttonTitle: "Try again") { _ in
-                    indicator.removeFromSuperview()
-                    self.saveChangeButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
-                    self.saveChangeButton.isUserInteractionEnabled = true
+                    // Hide Indicator when button is tapped - method is within `MainViewController`
+                    self.hideLoadingIndicator(on: self.saveChangeButton, buttonTitle: "Save Change")
                 }
             }
         }
@@ -87,9 +81,10 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
                 self.lastNameTextField.text = response.data.lastName
                 self.firstNameTextField.text = response.data.firstName
             case .failure(let networkError):
-                print("Error fetching user's information: \(networkError.localizedDescription)")
+                self.showAlert(title: "Error", message: networkError.localizedDescription, buttonTitle: "Go Back") { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
-            
         }
     }
 }

@@ -17,29 +17,20 @@ class ChangePasswordViewController: MainViewController, MainStoryboarded {
     // MARK: - @IBAction
     @IBAction func changePasswordButtonTapped(_ sender: Any) {
         
-        changePasswordButton.isUserInteractionEnabled = false
-        changePasswordButton.setAttributedTitle(NSAttributedString(string: "", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
-        let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
-        indicator.color = UIColor.white
-        indicator.startAnimating()
-        changePasswordButton.addSubview(indicator)
-        indicator.center = CGPoint(x: changePasswordButton.bounds.midX, y: changePasswordButton.bounds.midY)
+        // Show Indicator when button is tapped - method is within `MainViewController`
+        showLoadingIndicator(on: changePasswordButton)
         
         let changePasswordEndpoint = ChangePasswordEndpoint()
         NetworkManager.shared.request(endpoint: changePasswordEndpoint) { (result: Result<ChangePasswordResponse, NetworkError>) in
             switch result {
             case .success(let changePasswordResponse):
                 print("Password Changed Successfully: \(changePasswordResponse)")
-                
-                indicator.removeFromSuperview()
-                self.changePasswordButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
-                self.changePasswordButton.isUserInteractionEnabled = true
+                // Hide Indicator when button is tapped - method is within `MainViewController`
+                self.hideLoadingIndicator(on: self.changePasswordButton, buttonTitle: "Change Password")
             case .failure(let networkError):
+                // Hide Indicator when button is tapped - method is within `MainViewController`
                 print("Password Change Failed: \(networkError.localizedDescription)")
-                
-                indicator.removeFromSuperview()
-                self.changePasswordButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
-                self.changePasswordButton.isUserInteractionEnabled = true
+                self.hideLoadingIndicator(on: self.changePasswordButton, buttonTitle: "Change Password")
             }
         }
     }

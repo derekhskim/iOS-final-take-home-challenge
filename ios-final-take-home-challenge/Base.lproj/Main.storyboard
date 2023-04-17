@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="266-yn-bbc">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="266-yn-bbc" userLabel="Navigation Controller View">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXy-uF-b4G">
@@ -64,14 +64,14 @@
                                     <constraint firstItem="qXy-uF-b4G" firstAttribute="leading" secondItem="266-yn-bbc" secondAttribute="leading" constant="23" id="dzW-Q3-dbG"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4w-yZ-vJr">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4w-yZ-vJr" userLabel="Empty Green View">
                                 <rect key="frame" x="0.0" y="160" width="393" height="30"/>
                                 <color key="backgroundColor" name="DarkGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="udB-LU-6wo"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YId-W0-A3c">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YId-W0-A3c" userLabel="Subheader View">
                                 <rect key="frame" x="0.0" y="190" width="393" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BASIC INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIH-Ic-58M">
@@ -92,25 +92,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8HV-bd-1rI" userLabel="Username Stack View">
                                 <rect key="frame" x="20" y="230" width="353" height="36"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZSs-oW-nx3">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikx-cc-Jvg" customClass="CustomViewWithTextField" customModule="ios_final_take_home_challenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFu-Ks-QI7">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcy-q4-6u3">
-                                                <rect key="frame" x="176.66666666666663" y="0.0" width="176.33333333333337" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="A54-Eg-bwg"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="bNx-oY-s4h"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Username"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Enter Username"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eO-uo-4TE" userLabel="DividerView">
                                         <rect key="frame" x="0.0" y="35" width="353" height="1"/>
                                         <color key="backgroundColor" name="LightGray"/>
@@ -123,25 +115,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uKE-de-5ah" userLabel="First Name Stack View">
                                 <rect key="frame" x="20" y="276" width="353" height="36"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MP6-oE-NUo">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VM6-jR-7mk" customClass="CustomViewWithTextField" customModule="ios_final_take_home_challenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsQ-gc-62C">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kR1-Xd-lBK">
-                                                <rect key="frame" x="176.66666666666663" y="0.0" width="176.33333333333337" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="JkW-u7-jKM"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="nyg-fj-y7S"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="First Name"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Enter First Name"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ok4-Fi-rZ2" userLabel="DividerView">
                                         <rect key="frame" x="0.0" y="35" width="353" height="1"/>
                                         <color key="backgroundColor" name="LightGray"/>
@@ -151,34 +135,21 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="reJ-u4-gu0" userLabel="Last Name Stack View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpZ-c8-Htl" userLabel="Last Name View" customClass="CustomViewWithTextField" customModule="ios_final_take_home_challenge" customModuleProvider="target">
                                 <rect key="frame" x="20" y="322" width="353" height="30"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7hR-vb-eYw">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1g-OT-vSW">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OoC-Dt-6hc">
-                                                <rect key="frame" x="176.66666666666663" y="0.0" width="176.33333333333337" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="aRC-U4-2UY"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Khh-az-cQD"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Last Name"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Enter Last Name"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="f2x-lM-pWK">
                                 <rect key="frame" x="0.0" y="362" width="393" height="140"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0J-gL-51p">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0J-gL-51p" userLabel="Save Change Container View">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLC-Sj-1OB">
@@ -202,7 +173,7 @@
                                             <constraint firstItem="QLC-Sj-1OB" firstAttribute="leading" secondItem="s0J-gL-51p" secondAttribute="leading" constant="40" id="kcj-GG-Jph"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvv-CY-Nbj">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvv-CY-Nbj" userLabel="Change Password Container View">
                                         <rect key="frame" x="0.0" y="70" width="393" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-2u-5Oh">
@@ -238,29 +209,29 @@
                             <constraint firstItem="jSU-OB-YIX" firstAttribute="trailing" secondItem="uKE-de-5ah" secondAttribute="trailing" constant="20" id="B5B-Oh-2sD"/>
                             <constraint firstItem="jSU-OB-YIX" firstAttribute="trailing" secondItem="YId-W0-A3c" secondAttribute="trailing" id="Ecp-dy-nDI"/>
                             <constraint firstAttribute="trailing" secondItem="f2x-lM-pWK" secondAttribute="trailing" id="Ig1-wv-hLi"/>
+                            <constraint firstItem="f2x-lM-pWK" firstAttribute="top" secondItem="UpZ-c8-Htl" secondAttribute="bottom" constant="10" id="JFm-Tp-keO"/>
+                            <constraint firstItem="jSU-OB-YIX" firstAttribute="trailing" secondItem="UpZ-c8-Htl" secondAttribute="trailing" constant="20" id="LfU-2J-cLI"/>
                             <constraint firstItem="266-yn-bbc" firstAttribute="top" secondItem="CNe-Cj-9ic" secondAttribute="top" id="N6o-z2-7ki"/>
-                            <constraint firstItem="jSU-OB-YIX" firstAttribute="trailing" secondItem="reJ-u4-gu0" secondAttribute="trailing" constant="20" id="P0H-gf-hSW"/>
                             <constraint firstItem="P4w-yZ-vJr" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" id="PPS-LF-JVr"/>
                             <constraint firstAttribute="trailing" secondItem="8HV-bd-1rI" secondAttribute="trailing" constant="20" id="QIu-ZU-0q5"/>
                             <constraint firstItem="YId-W0-A3c" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" id="VTA-UD-dP0"/>
                             <constraint firstItem="8HV-bd-1rI" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" constant="20" id="VcY-Ka-r3h"/>
                             <constraint firstItem="uKE-de-5ah" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" constant="20" id="Ywx-9s-PcT"/>
                             <constraint firstItem="uKE-de-5ah" firstAttribute="top" secondItem="8HV-bd-1rI" secondAttribute="bottom" constant="10" id="ZCv-NC-nPT"/>
+                            <constraint firstItem="UpZ-c8-Htl" firstAttribute="top" secondItem="uKE-de-5ah" secondAttribute="bottom" constant="10" id="g6U-SM-egi"/>
                             <constraint firstItem="jSU-OB-YIX" firstAttribute="trailing" secondItem="266-yn-bbc" secondAttribute="trailing" id="nZ6-Nk-5dd"/>
                             <constraint firstItem="266-yn-bbc" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" id="pka-Up-7Ga"/>
-                            <constraint firstItem="f2x-lM-pWK" firstAttribute="top" secondItem="reJ-u4-gu0" secondAttribute="bottom" constant="10" id="sf4-Wk-YVl"/>
-                            <constraint firstItem="reJ-u4-gu0" firstAttribute="top" secondItem="uKE-de-5ah" secondAttribute="bottom" constant="10" id="t3b-Zd-LAi"/>
                             <constraint firstItem="YId-W0-A3c" firstAttribute="top" secondItem="P4w-yZ-vJr" secondAttribute="bottom" id="tEb-o1-55L"/>
                             <constraint firstItem="f2x-lM-pWK" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" id="uMC-xT-pkw"/>
-                            <constraint firstItem="reJ-u4-gu0" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" constant="20" id="ubX-YX-pJD"/>
+                            <constraint firstItem="UpZ-c8-Htl" firstAttribute="leading" secondItem="jSU-OB-YIX" secondAttribute="leading" constant="20" id="waf-P8-glY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="changePasswordButton" destination="RdD-2u-5Oh" id="bLL-Ih-4Ow"/>
-                        <outlet property="firstNameTextField" destination="kR1-Xd-lBK" id="yvj-aq-Pac"/>
-                        <outlet property="lastNameTextField" destination="OoC-Dt-6hc" id="gFc-Ob-FHT"/>
+                        <outlet property="firstNameView" destination="VM6-jR-7mk" id="VcE-Qt-PtH"/>
+                        <outlet property="lastNameView" destination="UpZ-c8-Htl" id="diR-DN-1BB"/>
                         <outlet property="saveChangeButton" destination="QLC-Sj-1OB" id="VJJ-Oj-abV"/>
-                        <outlet property="userNameTextField" destination="mcy-q4-6u3" id="jz4-bM-cLl"/>
+                        <outlet property="userNameView" destination="Ikx-cc-Jvg" id="Eq1-rG-AB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBQ-Ur-G2y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -275,7 +246,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evF-WG-kZn">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evF-WG-kZn" userLabel="Navigation Controller View">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfC-bc-nQq">
@@ -293,14 +264,14 @@
                                     <constraint firstAttribute="trailing" secondItem="KfC-bc-nQq" secondAttribute="trailing" constant="23" id="zNq-R4-28C"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEJ-bG-aw9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEJ-bG-aw9" userLabel="Empty Green View">
                                 <rect key="frame" x="0.0" y="160" width="393" height="30"/>
                                 <color key="backgroundColor" name="DarkGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7yW-OI-sbg"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hnm-EU-2Z9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hnm-EU-2Z9" userLabel="Subheader View">
                                 <rect key="frame" x="0.0" y="190" width="393" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWi-tg-hPa">
@@ -321,25 +292,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="suk-jO-cEV" userLabel="Password Stack View">
                                 <rect key="frame" x="20" y="230" width="353" height="36"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vLO-Bc-3GJ">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4P-GX-3AC" customClass="CustomViewWithTextField" customModule="ios_final_take_home_challenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCx-Kl-wdK">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etJ-lR-fVO">
-                                                <rect key="frame" x="176.66666666666663" y="0.0" width="176.33333333333337" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="dWC-Pf-31I"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="zXh-07-kn9"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="New Password"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Enter New Password"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSE-Tx-cqO" userLabel="DividerView">
                                         <rect key="frame" x="0.0" y="35" width="353" height="1"/>
                                         <color key="backgroundColor" name="LightGray"/>
@@ -349,31 +312,18 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fga-78-VRe" userLabel="ReEnter Password Stack View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Unr-Vr-Vkl" customClass="CustomViewWithTextField" customModule="ios_final_take_home_challenge" customModuleProvider="target">
                                 <rect key="frame" x="20" y="276" width="353" height="30"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XRp-1S-EHC">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Re-enter Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mge-yn-9a7">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DM1-TL-68m">
-                                                <rect key="frame" x="176.66666666666663" y="0.0" width="176.33333333333337" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="0Gd-Zt-ap3"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0Q-dD-qdB">
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QXY-3m-AL9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Re-enter Password"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Re-enter Password"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0Q-dD-qdB" userLabel="Change Password Container View">
                                 <rect key="frame" x="0.0" y="316" width="393" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j02-NX-Ftn">
@@ -401,30 +351,30 @@
                         <viewLayoutGuide key="safeArea" id="uak-Zo-lmL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fga-78-VRe" firstAttribute="top" secondItem="suk-jO-cEV" secondAttribute="bottom" constant="10" id="3yw-Ka-xzT"/>
                             <constraint firstItem="evF-WG-kZn" firstAttribute="leading" secondItem="uak-Zo-lmL" secondAttribute="leading" id="4aY-2b-wSM"/>
+                            <constraint firstItem="g0Q-dD-qdB" firstAttribute="top" secondItem="Unr-Vr-Vkl" secondAttribute="bottom" constant="10" id="CMi-u3-hvF"/>
                             <constraint firstItem="ZEJ-bG-aw9" firstAttribute="trailing" secondItem="uak-Zo-lmL" secondAttribute="trailing" id="Cpi-ln-3t8"/>
-                            <constraint firstItem="g0Q-dD-qdB" firstAttribute="top" secondItem="fga-78-VRe" secondAttribute="bottom" constant="10" id="GLT-MJ-Mm1"/>
+                            <constraint firstItem="Unr-Vr-Vkl" firstAttribute="leading" secondItem="uak-Zo-lmL" secondAttribute="leading" constant="20" id="EP1-np-zgo"/>
                             <constraint firstItem="Hnm-EU-2Z9" firstAttribute="top" secondItem="ZEJ-bG-aw9" secondAttribute="bottom" id="LWS-gH-FoM"/>
                             <constraint firstItem="ZEJ-bG-aw9" firstAttribute="top" secondItem="evF-WG-kZn" secondAttribute="bottom" id="Lpr-4w-Hnb"/>
+                            <constraint firstItem="uak-Zo-lmL" firstAttribute="trailing" secondItem="Unr-Vr-Vkl" secondAttribute="trailing" constant="20" id="Q69-yP-Era"/>
                             <constraint firstItem="uak-Zo-lmL" firstAttribute="trailing" secondItem="suk-jO-cEV" secondAttribute="trailing" constant="20" id="RHI-jV-Chp"/>
                             <constraint firstItem="g0Q-dD-qdB" firstAttribute="leading" secondItem="uak-Zo-lmL" secondAttribute="leading" id="SCc-zU-Wvh"/>
-                            <constraint firstItem="fga-78-VRe" firstAttribute="leading" secondItem="uak-Zo-lmL" secondAttribute="leading" constant="20" id="TzF-RK-Lla"/>
                             <constraint firstItem="evF-WG-kZn" firstAttribute="trailing" secondItem="uak-Zo-lmL" secondAttribute="trailing" id="YnI-vM-CgA"/>
                             <constraint firstItem="suk-jO-cEV" firstAttribute="leading" secondItem="uak-Zo-lmL" secondAttribute="leading" constant="20" id="Zm5-Av-JS9"/>
                             <constraint firstItem="evF-WG-kZn" firstAttribute="top" secondItem="7Tr-WJ-3Mz" secondAttribute="top" id="Zo1-nd-NIe"/>
+                            <constraint firstItem="Unr-Vr-Vkl" firstAttribute="top" secondItem="suk-jO-cEV" secondAttribute="bottom" constant="10" id="b82-Si-gf7"/>
                             <constraint firstItem="ZEJ-bG-aw9" firstAttribute="leading" secondItem="uak-Zo-lmL" secondAttribute="leading" id="cCS-ap-oks"/>
                             <constraint firstAttribute="trailing" secondItem="g0Q-dD-qdB" secondAttribute="trailing" id="dj5-hN-cga"/>
                             <constraint firstItem="suk-jO-cEV" firstAttribute="top" secondItem="Hnm-EU-2Z9" secondAttribute="bottom" constant="10" id="nTn-GI-vby"/>
                             <constraint firstItem="Hnm-EU-2Z9" firstAttribute="leading" secondItem="uak-Zo-lmL" secondAttribute="leading" id="sBg-t5-Bp5"/>
-                            <constraint firstItem="uak-Zo-lmL" firstAttribute="trailing" secondItem="fga-78-VRe" secondAttribute="trailing" constant="20" id="ud8-3j-EdT"/>
                             <constraint firstItem="Hnm-EU-2Z9" firstAttribute="trailing" secondItem="uak-Zo-lmL" secondAttribute="trailing" id="unH-04-Gxt"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="changePasswordButton" destination="j02-NX-Ftn" id="jaf-Uy-y3Y"/>
-                        <outlet property="newPasswordTextField" destination="etJ-lR-fVO" id="tLp-a2-YwB"/>
-                        <outlet property="reEnterPasswordTextField" destination="DM1-TL-68m" id="6FW-c6-uE8"/>
+                        <outlet property="enterPasswordView" destination="U4P-GX-3AC" id="QpH-BV-XBG"/>
+                        <outlet property="reEnterPasswordView" destination="Unr-Vr-Vkl" id="VmM-l9-Kbr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Btm-JA-rJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

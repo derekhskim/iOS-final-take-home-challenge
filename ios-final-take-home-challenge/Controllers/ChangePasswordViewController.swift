@@ -9,9 +9,9 @@ import UIKit
 
 class ChangePasswordViewController: MainViewController, MainStoryboarded {
     
-    // MARK: - @IBOutlet
-    @IBOutlet weak var newPasswordTextField: UITextField!
-    @IBOutlet weak var reEnterPasswordTextField: UITextField!
+    // MARK: - @IBOutlet    
+    @IBOutlet weak var enterPasswordView: CustomViewWithTextField!
+    @IBOutlet weak var reEnterPasswordView: CustomViewWithTextField!
     @IBOutlet weak var changePasswordButton: UIButton!
     
     // MARK: - @IBAction
@@ -21,8 +21,8 @@ class ChangePasswordViewController: MainViewController, MainStoryboarded {
         showLoadingIndicator(on: changePasswordButton)
         
         // Safely unwrap and check for empty fields - if any field is empty, call showAlert method
-        guard let newPassword = newPasswordTextField.text, !newPassword.isEmpty,
-              let confirmNewPassword = reEnterPasswordTextField.text, !confirmNewPassword.isEmpty else {
+        guard let newPassword = enterPasswordView.inputTextField.text, !newPassword.isEmpty,
+              let confirmNewPassword = reEnterPasswordView.inputTextField.text, !confirmNewPassword.isEmpty else {
             showAlert(title: "Error", message: NetworkError.emptyFields.localizedDescription, buttonTitle: "Try Again") { _ in
                 // Hide Indicator when button is tapped - method is within `MainViewController`
                 self.hideLoadingIndicator(on: self.changePasswordButton, buttonTitle: "Change Password")
@@ -65,8 +65,8 @@ class ChangePasswordViewController: MainViewController, MainStoryboarded {
         setupNavigationBar(backButtonTitle: "")
         configureButton(button: changePasswordButton)
         
-        newPasswordTextField.isSecureTextEntry = true
-        reEnterPasswordTextField.isSecureTextEntry = true
+        enterPasswordView.inputTextField.isSecureTextEntry = true
+        reEnterPasswordView.inputTextField.isSecureTextEntry = true
         
     }
     

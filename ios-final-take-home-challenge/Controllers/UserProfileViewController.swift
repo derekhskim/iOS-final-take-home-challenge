@@ -13,9 +13,9 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
     weak var coordinator: MainCoordinator?
     
     // MARK: - @IBOutlet
-    @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var userNameView: CustomViewWithTextField!
+    @IBOutlet weak var firstNameView: CustomViewWithTextField!
+    @IBOutlet weak var lastNameView: CustomViewWithTextField!
     @IBOutlet weak var saveChangeButton: UIButton!
     @IBOutlet weak var changePasswordButton: UIButton!
     
@@ -26,9 +26,9 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
         showLoadingIndicator(on: saveChangeButton)
         
         // Safely unwrap and check for empty fields - if any field is empty, call showAlert method
-        guard let userName = userNameTextField.text, !userName.isEmpty,
-              let firstName = firstNameTextField.text, !firstName.isEmpty,
-              let lastName = lastNameTextField.text, !lastName.isEmpty else {
+        guard let userName = userNameView.inputTextField.text, !userName.isEmpty,
+              let firstName = firstNameView.inputTextField.text, !firstName.isEmpty,
+              let lastName = lastNameView.inputTextField.text, !lastName.isEmpty else {
             showAlert(title: "Error", message: NetworkError.emptyFields.localizedDescription, buttonTitle: "Try Again") { _ in
                 // Hide Indicator when button is tapped - method is within `MainViewController`
                 self.hideLoadingIndicator(on: self.saveChangeButton, buttonTitle: "Save Change")
@@ -69,6 +69,8 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
         
         configureButton(button: saveChangeButton)
         configureButton(button: changePasswordButton)
+        
+        disableAutoCorrection()
     }
     
     // MARK: - Function
@@ -77,14 +79,20 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
         NetworkManager.shared.request(endpoint: getProfileEndpoint) { (result: Result<Response, NetworkError>) in
             switch result {
             case .success(let response):
-                self.userNameTextField.text = response.data.userName
-                self.lastNameTextField.text = response.data.lastName
-                self.firstNameTextField.text = response.data.firstName
+                self.userNameView.inputTextField.text = response.data.userName
+                self.lastNameView.inputTextField.text = response.data.lastName
+                self.firstNameView.inputTextField.text = response.data.firstName
             case .failure(let networkError):
                 self.showAlert(title: "Error", message: networkError.localizedDescription, buttonTitle: "Go Back") { _ in
                     self.navigationController?.popViewController(animated: true)
                 }
             }
         }
+    }
+    
+    func disableAutoCorrection() {
+        self.userNameView.inputTextField.autocorrectionType = .no
+        self.lastNameView.inputTextField.autocorrectionType = .no
+        self.firstNameView.inputTextField.autocorrectionType = .no
     }
 }

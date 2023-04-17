@@ -10,7 +10,6 @@ import UIKit
 class ChangePasswordViewController: MainViewController, MainStoryboarded {
     
     // MARK: - @IBOutlet
-    
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var reEnterPasswordTextField: UITextField!
     @IBOutlet weak var changePasswordButton: UIButton!
@@ -50,13 +49,8 @@ class ChangePasswordViewController: MainViewController, MainStoryboarded {
         super.viewDidLoad()
         
         setupNavigationBar(backButtonTitle: "")
-        configureButton()
+        configureButton(button: changePasswordButton)
         
     }
     
-    func configureButton() {
-        changePasswordButton.layer.borderWidth = 4
-        changePasswordButton.layer.borderColor = UIColor.appColor(DKColor.LightGray).cgColor
-        changePasswordButton.layer.cornerRadius = 5
-    }
 }

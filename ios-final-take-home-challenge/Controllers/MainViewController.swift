@@ -20,4 +20,10 @@ class MainViewController: UIViewController {
         backButton.tintColor = UIColor.appColor(DKColor.DarkGray)
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
+    
+    func configureButton(button UIButton: UIButton) {
+        UIButton.layer.borderWidth = 4
+        UIButton.layer.borderColor = UIColor.appColor(DKColor.LightGray).cgColor
+        UIButton.layer.cornerRadius = 5
+    }
 }

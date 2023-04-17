@@ -29,12 +29,16 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
         indicator.startAnimating()
         saveChangeButton.addSubview(indicator)
         indicator.center = CGPoint(x: saveChangeButton.bounds.midX, y: saveChangeButton.bounds.midY)
-
-        let updateProfileEndpoint = UpdateProfileEndpoint()
+        
+        guard let userName = userNameTextField.text, let firstName = firstNameTextField.text, let lastName = lastNameTextField.text else { return }
+        
+        let userData = DataClass(firstName: firstName, userName: userName, lastName: lastName)
+        let updateProfileEndpoint = UpdateProfileEndpoint(userData: userData)
         NetworkManager.shared.request(endpoint: updateProfileEndpoint) {(result: Result<Response, NetworkError>) in
             switch result {
             case .success(let response):
                 print("Successfully updated user: \(response)")
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(response.data), forKey: "userProfile")
                 
                 indicator.removeFromSuperview()
                 self.saveChangeButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
@@ -59,31 +63,20 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
         
         getUserProfile()
         setupNavigationBar(backButtonTitle: "Dashboard")
-        configureButton()
         
+        configureButton(button: saveChangeButton)
+        configureButton(button: changePasswordButton)
     }
     
     // MARK: - Function
-    func configureButton() {
-        saveChangeButton.layer.borderWidth = 4
-        saveChangeButton.layer.borderColor = UIColor.appColor(DKColor.LightGray).cgColor
-        saveChangeButton.layer.cornerRadius = 5
-        
-        changePasswordButton.layer.borderWidth = 4
-        changePasswordButton.layer.borderColor = UIColor.appColor(DKColor.LightGray).cgColor
-        changePasswordButton.layer.cornerRadius = 5
-    }
-
     func getUserProfile() {
         let getProfileEndpoint = GetProfileEndpoint()
         NetworkManager.shared.request(endpoint: getProfileEndpoint) { (result: Result<Response, NetworkError>) in
             switch result {
             case .success(let response):
-                
                 self.userNameTextField.text = response.data.userName
                 self.lastNameTextField.text = response.data.lastName
                 self.firstNameTextField.text = response.data.firstName
-                
             case .failure(let networkError):
                 print("Error fetching user's information: \(networkError.localizedDescription)")
             }

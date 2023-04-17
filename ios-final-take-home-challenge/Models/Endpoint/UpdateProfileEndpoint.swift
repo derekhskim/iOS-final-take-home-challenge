@@ -8,8 +8,13 @@
 import Foundation
 
 struct UpdateProfileEndpoint: Endpoint {
+    var userData: DataClass
+    
     var path: String { return "/profiles/update" }
     var httpMethod: HttpMethod { return .post }
     var headers: [String : String] { return defaultHeaders }
-    var body: Data? { return nil }
+    
+    var body: Data? {
+        return try? JSONEncoder().encode(userData)
+    }
 }

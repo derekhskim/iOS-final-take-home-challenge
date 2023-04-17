@@ -8,6 +8,7 @@
 import Foundation
 
 protocol Endpoint {
+    var baseURL: String { get }
     var path: String { get }
     var httpMethod: HttpMethod { get }
     var headers: [String: String] { get }
@@ -15,6 +16,10 @@ protocol Endpoint {
 }
 
 extension Endpoint {
+    var baseURL: String {
+        return "https://api.example.com"
+    }
+    
     var defaultHeaders: [String: String] {
         var headers: [String: String] = [:]
         if let token = UserDefaults.standard.string(forKey: "authenticationAPI") {

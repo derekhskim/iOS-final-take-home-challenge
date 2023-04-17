@@ -31,6 +31,8 @@
 		65933BDB29ECF329005ACCE6 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65933BDA29ECF329005ACCE6 /* UIViewController+.swift */; };
 		65933BE029EDA527005ACCE6 /* CustomViewWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65933BDF29EDA527005ACCE6 /* CustomViewWithTextField.swift */; };
 		65933BE229EDA533005ACCE6 /* CustomViewWithTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65933BE129EDA533005ACCE6 /* CustomViewWithTextField.xib */; };
+		65B48DB829EDB069002FF7CE /* CustomViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B48DB729EDB069002FF7CE /* CustomViewButton.swift */; };
+		65B48DBA29EDB075002FF7CE /* CustomViewButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B48DB929EDB075002FF7CE /* CustomViewButton.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		65933BDA29ECF329005ACCE6 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		65933BDF29EDA527005ACCE6 /* CustomViewWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewWithTextField.swift; sourceTree = "<group>"; };
 		65933BE129EDA533005ACCE6 /* CustomViewWithTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewWithTextField.xib; sourceTree = "<group>"; };
+		65B48DB729EDB069002FF7CE /* CustomViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewButton.swift; sourceTree = "<group>"; };
+		65B48DB929EDB075002FF7CE /* CustomViewButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewButton.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,8 @@
 			children = (
 				65933BDF29EDA527005ACCE6 /* CustomViewWithTextField.swift */,
 				65933BE129EDA533005ACCE6 /* CustomViewWithTextField.xib */,
+				65B48DB729EDB069002FF7CE /* CustomViewButton.swift */,
+				65B48DB929EDB075002FF7CE /* CustomViewButton.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,7 +209,7 @@
 		650E10E829EA37AF00B6203A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
+				BuildIndependentTargetsInParallel = NO;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
@@ -239,6 +245,7 @@
 				650E10FD29EA37B100B6203A /* Assets.xcassets in Resources */,
 				650E10FB29EA37AF00B6203A /* Main.storyboard in Resources */,
 				65933BE229EDA533005ACCE6 /* CustomViewWithTextField.xib in Resources */,
+				65B48DBA29EDB075002FF7CE /* CustomViewButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +259,7 @@
 				650E110929EA3A2000B6203A /* NetworkManager.swift in Sources */,
 				650E111B29EA3FD500B6203A /* UserProfileViewController.swift in Sources */,
 				65933BE029EDA527005ACCE6 /* CustomViewWithTextField.swift in Sources */,
+				65B48DB829EDB069002FF7CE /* CustomViewButton.swift in Sources */,
 				650E112429EA43EB00B6203A /* Coordinator.swift in Sources */,
 				650E112229EA43D100B6203A /* MainStoryboarded.swift in Sources */,
 				650E10F829EA37AF00B6203A /* ViewController.swift in Sources */,
@@ -344,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -398,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

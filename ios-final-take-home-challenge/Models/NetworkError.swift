@@ -7,11 +7,13 @@
 
 import Foundation
 
+// Handle Error Cases
 enum NetworkError: Error {
     case invalidResponse
     case emptyFields
     case passwordMismatch
     
+    // Set localizedDescriptions for each error cases
     var localizedDescription: String {
             switch self {
             case .invalidResponse:

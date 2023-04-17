@@ -20,17 +20,40 @@ class ChangePasswordViewController: MainViewController, MainStoryboarded {
         // Show Indicator when button is tapped - method is within `MainViewController`
         showLoadingIndicator(on: changePasswordButton)
         
-        let changePasswordEndpoint = ChangePasswordEndpoint()
+        // Safely unwrap and check for empty fields - if any field is empty, call showAlert method
+        guard let newPassword = newPasswordTextField.text, !newPassword.isEmpty,
+              let confirmNewPassword = reEnterPasswordTextField.text, !confirmNewPassword.isEmpty else {
+            showAlert(title: "Error", message: NetworkError.emptyFields.localizedDescription, buttonTitle: "Try Again") { _ in
+                // Hide Indicator when button is tapped - method is within `MainViewController`
+                self.hideLoadingIndicator(on: self.changePasswordButton, buttonTitle: "Change Password")
+            }
+            return
+        }
+        
+        // Check if both fields match each other, if not, call showAlert method
+        if newPassword != confirmNewPassword {
+            showAlert(title: "Error", message: NetworkError.passwordMismatch.localizedDescription, buttonTitle: "Try Again") { _ in
+                // Hide Indicator when button is tapped - method is within `MainViewController`
+                self.hideLoadingIndicator(on: self.changePasswordButton, buttonTitle: "Change Password")
+            }
+            return
+        }
+        
+        let passwordData = PasswordData(newPassword: newPassword, confirmNewPassword: confirmNewPassword)
+        let changePasswordEndpoint = ChangePasswordEndpoint(passwordData: passwordData)
         NetworkManager.shared.request(endpoint: changePasswordEndpoint) { (result: Result<ChangePasswordResponse, NetworkError>) in
             switch result {
             case .success(let changePasswordResponse):
-                print("Password Changed Successfully: \(changePasswordResponse)")
-                // Hide Indicator when button is tapped - method is within `MainViewController`
-                self.hideLoadingIndicator(on: self.changePasswordButton, buttonTitle: "Change Password")
+                self.showAlert(title: "Success!", message: "Password Changed Successfully!", buttonTitle: "OK") { _ in
+                    // Hide Indicator when button is tapped - method is within `MainViewController`
+                    print("Response: \(changePasswordResponse)")
+                    self.hideLoadingIndicator(on: self.changePasswordButton, buttonTitle: "Change Password")
+                }
             case .failure(let networkError):
-                // Hide Indicator when button is tapped - method is within `MainViewController`
-                print("Password Change Failed: \(networkError.localizedDescription)")
-                self.hideLoadingIndicator(on: self.changePasswordButton, buttonTitle: "Change Password")
+                self.showAlert(title: "Error", message: "Password Change Failed: \(networkError.localizedDescription)", buttonTitle: "Try Again") { _ in
+                    // Hide Indicator when button is tapped - method is within `MainViewController`
+                    self.hideLoadingIndicator(on: self.changePasswordButton, buttonTitle: "Change Password")
+                }
             }
         }
     }
@@ -41,6 +64,9 @@ class ChangePasswordViewController: MainViewController, MainStoryboarded {
         
         setupNavigationBar(backButtonTitle: "")
         configureButton(button: changePasswordButton)
+        
+        newPasswordTextField.isSecureTextEntry = true
+        reEnterPasswordTextField.isSecureTextEntry = true
         
     }
     

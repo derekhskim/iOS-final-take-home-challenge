@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: MainViewController, MainStoryboarded {
 
+    // MARK: - Properties
     weak var coordinator: MainCoordinator?
     
     // MARK: - @IBAction
@@ -16,6 +17,7 @@ class ViewController: MainViewController, MainStoryboarded {
         coordinator?.goToUserProfileVC()
     }
     
+    // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

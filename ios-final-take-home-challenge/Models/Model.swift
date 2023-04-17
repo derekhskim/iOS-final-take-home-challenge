@@ -35,3 +35,8 @@ struct ChangePasswordResponse: Codable {
         case msgCode = "msg_code"
     }
 }
+
+// MARK: - PasswordData
+struct PasswordData: Codable {
+    let newPassword, confirmNewPassword: String
+}

@@ -9,13 +9,16 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: - Properties
     private let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     
+    // MARK: - viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    // MARK: - Function
     func setupNavigationBar(backButtonTitle titleText: String) {
         let backButton = UIBarButtonItem()
         backButton.title = titleText

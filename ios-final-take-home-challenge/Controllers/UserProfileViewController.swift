@@ -30,25 +30,34 @@ class UserProfileViewController: MainViewController, MainStoryboarded {
         saveChangeButton.addSubview(indicator)
         indicator.center = CGPoint(x: saveChangeButton.bounds.midX, y: saveChangeButton.bounds.midY)
         
-        guard let userName = userNameTextField.text, let firstName = firstNameTextField.text, let lastName = lastNameTextField.text else { return }
+        guard let userName = userNameTextField.text, !userName.isEmpty,
+              let firstName = firstNameTextField.text, !firstName.isEmpty,
+              let lastName = lastNameTextField.text, !lastName.isEmpty else {
+            showAlert(title: "Error", message: NetworkError.emptyFields.localizedDescription, buttonTitle: "Try Again") { _ in
+                indicator.removeFromSuperview()
+                self.saveChangeButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
+                self.saveChangeButton.isUserInteractionEnabled = true
+            }
+            return
+        }
         
         let userData = DataClass(firstName: firstName, userName: userName, lastName: lastName)
         let updateProfileEndpoint = UpdateProfileEndpoint(userData: userData)
         NetworkManager.shared.request(endpoint: updateProfileEndpoint) {(result: Result<Response, NetworkError>) in
             switch result {
             case .success(let response):
-                print("Successfully updated user: \(response)")
-                UserDefaults.standard.set(try? PropertyListEncoder().encode(response.data), forKey: "userProfile")
-                
-                indicator.removeFromSuperview()
-                self.saveChangeButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
-                self.saveChangeButton.isUserInteractionEnabled = true
+                self.showAlert(title: "Success!", message: "User information has been updated successfully!", buttonTitle: "OK") { _ in
+                    UserDefaults.standard.set(try? PropertyListEncoder().encode(response.data), forKey: "userProfile")
+                    indicator.removeFromSuperview()
+                    self.saveChangeButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
+                    self.saveChangeButton.isUserInteractionEnabled = true
+                }
             case .failure(let networkError):
-                print("Update user failed: \(networkError.localizedDescription)")
-                
-                indicator.removeFromSuperview()
-                self.saveChangeButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
-                self.saveChangeButton.isUserInteractionEnabled = true
+                self.showAlert(title: "Error", message: networkError.localizedDescription, buttonTitle: "Try again") { _ in
+                    indicator.removeFromSuperview()
+                    self.saveChangeButton.setAttributedTitle(NSAttributedString(string: "Save Changes", attributes: [.font: UIFont.systemFont(ofSize: 24)]), for: .normal)
+                    self.saveChangeButton.isUserInteractionEnabled = true
+                }
             }
         }
     }

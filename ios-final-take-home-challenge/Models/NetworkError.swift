@@ -15,7 +15,7 @@ enum NetworkError: Error {
     var localizedDescription: String {
             switch self {
             case .invalidResponse:
-                return "The server returned an invalid response."
+                return "The server returned an invalid response. Please try again later."
             case .emptyFields:
                 return "One or more required fields are empty."
             case .passwordMismatch:

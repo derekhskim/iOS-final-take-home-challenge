@@ -28,6 +28,7 @@
 		650E112629EA43F500B6203A /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112529EA43F500B6203A /* MainCoordinator.swift */; };
 		650E112A29EB99CC00B6203A /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112929EB99CC00B6203A /* UIColor+.swift */; };
 		650E112C29EB9C9E00B6203A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E112B29EB9C9E00B6203A /* MainViewController.swift */; };
+		65933BDB29ECF329005ACCE6 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65933BDA29ECF329005ACCE6 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		650E112529EA43F500B6203A /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		650E112929EB99CC00B6203A /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		650E112B29EB9C9E00B6203A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		65933BDA29ECF329005ACCE6 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				650E112929EB99CC00B6203A /* UIColor+.swift */,
+				65933BDA29ECF329005ACCE6 /* UIViewController+.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				650E111929EA3DFC00B6203A /* Model.swift in Sources */,
 				650E112C29EB9C9E00B6203A /* MainViewController.swift in Sources */,
 				650E110B29EA3A6700B6203A /* Endpoint.swift in Sources */,
+				65933BDB29ECF329005ACCE6 /* UIViewController+.swift in Sources */,
 				650E111729EA3C5200B6203A /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
